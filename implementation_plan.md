@@ -89,38 +89,41 @@ erDiagram
 
 ## Development Phases
 
-### Phase 1: Project Setup ⬅️ CURRENT
-- Expo + TypeScript + Expo Router
-- NativeWind configuration
-- Supabase client setup
-- Folder architecture
-- Environment variables
-- Bottom tab navigation skeleton
+### Phase 1: Project Setup ✅
+- [x] Expo + TypeScript + Expo Router
+- [x] NativeWind configuration
+- [x] Supabase client setup
+- [x] Folder architecture
+- [x] Environment variables
+- [x] Bottom tab navigation skeleton
 
-### Phase 2: Authentication
-- Supabase Auth (email/password)
-- BRACU email validation (@g.bracu.ac.bd)
-- Sign up / Login / Logout
-- Persistent sessions
-- Auth state management (Zustand)
+### Phase 2: Authentication ✅
+- [x] Supabase Auth (email/password)
+- [x] BRACU email validation (@g.bracu.ac.bd)
+- [x] Sign up / Login / Logout
+- [x] Persistent sessions
+- [x] Auth state management (Zustand)
 
-### Phase 3: User Profile
-- Profile creation/edit screen
-- Avatar upload via Supabase Storage
-- Profile display
+### Phase 3: User Profile ✅
+- [x] Profile creation/edit screen
+- [x] Avatar upload via Supabase Storage
+- [x] Profile display
 
-### Phase 4: Ride Creation & Feed
-- Create ride form
-- Ride feed with cards
-- Search & filter
-- Ride detail view
+### Phase 4: Ride Creation & Feed ✅
+- [x] Create ride form
+- [x] Ride feed with cards
+- [x] Search & filter
+- [x] Ride detail view
 
-### Phase 5: Join Request System
-- Request to join ride
-- Creator accepts requests
-- Auto-add to ride_members
+### Phase 5: Join Request System ⬅️ CURRENT
+- [ ] Request to join ride
+- [ ] Creator accepts requests
+- [ ] Auto-add to ride_members
 
-### Phase 6: Realtime Group Chat
+### Phase 6: Realtime Group Chat ⬅️ NEXT
+- [ ] Group chat room creation
+- [ ] Realtime messages (Supabase Realtime)
+- [ ] Push notifications (optional)
 - Auto-create chat on first accept
 - Realtime messaging via Supabase Realtime
 - Chat expiry (1hr after departure)

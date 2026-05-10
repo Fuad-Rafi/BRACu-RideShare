@@ -40,7 +40,7 @@ export default function SignupScreen() {
       Alert.alert(
         'Success', 
         'Please check your email for the confirmation link.',
-        [{ text: 'OK', onPress: () => router.replace('/login') }]
+        [{ text: 'OK', onPress: () => router.replace('/(auth)/login') }]
       );
     }
   }
@@ -107,7 +107,7 @@ export default function SignupScreen() {
 
           <View className="mt-auto pt-10 flex-row justify-center">
             <Text className="text-secondary-500">Already have an account? </Text>
-            <Link href="/login" asChild>
+            <Link href="/(auth)/login" asChild>
               <TouchableOpacity>
                 <Text className="text-primary-500 font-bold">Log In</Text>
               </TouchableOpacity>
