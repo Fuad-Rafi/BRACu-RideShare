@@ -3,8 +3,15 @@ import { createClient } from '@supabase/supabase-js';
 import { Platform } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || '';
+const rawUrl = process.env.EXPO_PUBLIC_SUPABASE_URL || '';
+const supabaseAnonKey = (process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || '').trim();
+
+// Sanitize URL: remove spaces and trailing /rest/v1/ or slashes
+const supabaseUrl = rawUrl.trim().replace(/\/rest\/v1\/?$/, '').replace(/\/$/, '');
+
+if (__DEV__) {
+  console.log('Supabase Configured:', { url: supabaseUrl, keyLength: supabaseAnonKey.length });
+}
 
 const ExpoSecureStoreAdapter = {
   getItem: (key: string) => {

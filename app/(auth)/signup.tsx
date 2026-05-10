@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { CONFIG } from '@/constants/config';
 
 export default function SignupScreen() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -12,7 +13,7 @@ export default function SignupScreen() {
   const router = useRouter();
 
   async function signUpWithEmail() {
-    if (!email || !password || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword) {
       Alert.alert('Error', 'Please fill in all fields');
       return;
     }
@@ -31,6 +32,11 @@ export default function SignupScreen() {
     const { data, error } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
       password: password,
+      options: {
+        data: {
+          name: name.trim(),
+        },
+      },
     });
 
     if (error) {
@@ -59,6 +65,16 @@ export default function SignupScreen() {
 
           <View className="space-y-4">
             <View>
+              <Text className="text-secondary-700 font-medium mb-2">Full Name</Text>
+              <TextInput
+                className="bg-secondary-50 border border-secondary-200 rounded-2xl px-4 py-4 text-secondary-900"
+                placeholder="John Doe"
+                value={name}
+                onChangeText={setName}
+              />
+            </View>
+
+            <View className="mt-4">
               <Text className="text-secondary-700 font-medium mb-2">University Email</Text>
               <TextInput
                 className="bg-secondary-50 border border-secondary-200 rounded-2xl px-4 py-4 text-secondary-900"

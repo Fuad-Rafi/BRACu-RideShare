@@ -19,6 +19,11 @@ export default function LoginScreen() {
       return;
     }
 
+    if (!email.trim().toLowerCase().endsWith(`@${CONFIG.ALLOWED_DOMAIN}`)) {
+      Alert.alert('Invalid Email', `Please use your BRAC University email (@${CONFIG.ALLOWED_DOMAIN})`);
+      return;
+    }
+
     setLoading(true);
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email.trim(),
